@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { 
-  Drawer, 
-  List, 
-  ListItem, 
-  ListItemButton, 
-  ListItemText, 
+import {
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
   Typography,
   TextField,
   Box,
@@ -33,8 +33,22 @@ const Sort = ({ open, onClose, onSort, currentLimit }) => {
     onClose();
   };
 
+  const drawerWidth = 240;
+
   return (
-    <Drawer anchor="right" open={open} onClose={onClose}>
+    <Drawer anchor="right" open={open} onClose={onClose}
+      sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        '& .MuiDrawer-paper': {
+          width: drawerWidth,
+          boxSizing: 'border-box',
+        },
+      }}
+      variant="persistent"
+
+    >
+
       <Box sx={{ width: 250, p: 2 }}>
         <Typography variant="h6" sx={{ mb: 2 }}>
           Ordenar por:
@@ -69,15 +83,15 @@ const Sort = ({ open, onClose, onSort, currentLimit }) => {
         />
 
         <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
-          <Button 
-            variant="contained" 
+          <Button
+            variant="contained"
             onClick={handleLimitApply}
             fullWidth
           >
             Aplicar
           </Button>
-          <Button 
-            variant="outlined" 
+          <Button
+            variant="outlined"
             onClick={handleClearLimit}
             fullWidth
           >

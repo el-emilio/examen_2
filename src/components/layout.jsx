@@ -23,6 +23,7 @@ import { useNavigate } from 'react-router';
 import Home from '../pages/home';
 import About from '../pages/about';
 import Detail from '../pages/detail';
+import NotFound from '../pages/notFound';
 import { Routes, Route } from "react-router";
 
 const drawerWidth = 240;
@@ -168,6 +169,7 @@ export default function Layout() {
                     <Route path="/" element={<Home />}></Route>
                     <Route path="/about" element={<About />}></Route>
                     <Route path="/detail/:id" element={<Detail />}></Route>
+                    <Route path="*" element={<NotFound />}></Route>
                 </Routes>
             </Main>
         </Box>
